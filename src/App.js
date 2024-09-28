@@ -8,13 +8,13 @@ function App() {
       id: 1,
       name: "General Checkup",
       description: "A comprehensive medical checkup...",
-      price: 50,
+      price: 500,
     },
     {
       id: 2,
       name: "Dental Cleaning",
       description: "A professional dental cleaning...",
-      price: 80,
+      price: 800,
     },
   ]);
 
@@ -35,14 +35,20 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Helthcare Services</h1>
-      <AddServiceForm services={services} AddService={AddService} />
-      <ServiceList
-        services={services}
-        updateService={updateService}
-        handleDelete={handleDelete}
-      />
+    <div className="bg-gray-50 min-h-screen flex flex-col items-center p-4">
+      <h1 className="text-3xl text-blue-600 uppercase font-bold mb-6 tracking-wide">
+        Helthcare Services
+      </h1>
+
+      <div className="w-full max-w-4xl">
+        <AddServiceForm services={services} AddService={AddService} />
+
+        <ServiceList
+          services={services}
+          updateService={updateService}
+          handleDelete={handleDelete}
+        />
+      </div>
     </div>
   );
 }

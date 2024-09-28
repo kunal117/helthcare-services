@@ -17,32 +17,57 @@ function AddServiceForm({ services, AddService }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Name</h2>
-      <input
-        type="text"
-        value={newService.name}
-        onChange={(e) => setNewService({ ...newService, name: e.target.value })}
-      />
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white p-6 shadow-md rounded-lg mb-6"
+    >
+      <h2 className="text-xl font-semibold text-gray-800 mb-4 ml-80 uppercase">
+        Add New Service
+      </h2>
 
-      <h2>Description</h2>
-      <input
-        type="text"
-        value={newService.description}
-        onChange={(e) =>
-          setNewService({ ...newService, description: e.target.value })
-        }
-      />
+      <div>
+        <h2 className="mb-2 uppercase tracking-wide">Service Name</h2>
+        <input
+          type="text"
+          value={newService.name}
+          onChange={(e) =>
+            setNewService({ ...newService, name: e.target.value })
+          }
+          className="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
+      <div>
+        <h2 className="mb-2 uppercase tracking-wide">Description</h2>
+        <input
+          type="text"
+          value={newService.description}
+          onChange={(e) =>
+            setNewService({ ...newService, description: e.target.value })
+          }
+          className="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
 
-      <h2>Price</h2>
-      <input
-        type="number"
-        value={newService.price}
-        onChange={(e) =>
-          setNewService({ ...newService, price: e.target.value })
-        }
-      />
-      <button type="submit">Add Service</button>
+      <div>
+        <h2 className="mb-2 uppercase tracking-wide">Price</h2>
+        <input
+          type="number"
+          value={newService.price}
+          onChange={(e) =>
+            setNewService({ ...newService, price: e.target.value })
+          }
+          className="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600"
+      >
+        Add Service
+      </button>
     </form>
   );
 }

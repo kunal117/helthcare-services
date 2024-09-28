@@ -45,12 +45,27 @@ function Service({ service, updateService, handleDelete }) {
           <button onClick={handleUpdate}>Save</button>
         </div>
       ) : (
-        <div>
-          <h1>{service.name}</h1>
-          <p>{service.description}</p>
-          <p>{`Price: ${service.price}`}</p>
-          <button onClick={() => setIsEditing(true)}>Edit</button>
-          <button onClick={() => handleDelete(service.id)}>Delete</button>
+        <div className="bg-white shadow-md rounded-lg p-6 mb-4">
+          <h3 className="text-xl font-semibold text-gray-800  tracking-wide">
+            {service.name}
+          </h3>
+          <p className="text-gray-600">{service.description}</p>
+          <p className="font-bold text-gray-800 tracking-wide">{`Price: ${service.price}`}</p>
+
+          <div className="mt-4">
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2"
+              onClick={() => setIsEditing(true)}
+            >
+              Edit
+            </button>
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-red-600"
+              onClick={() => handleDelete(service.id)}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       )}
     </li>

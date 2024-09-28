@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ServiceList from "./ServiceList";
+import AddServiceForm from "./AddServiceForm";
 
 function App() {
   const [services, setServices] = useState([
@@ -25,10 +26,23 @@ function App() {
     );
   }
 
+  function handleDelete(id) {
+    setServices(services.filter((service) => service.id !== id));
+  }
+
+  function AddService(newService) {
+    setServices([...services, { ...newService }]);
+  }
+
   return (
     <div>
       <h1>Helthcare Services</h1>
-      <ServiceList services={services} updateService={updateService} />
+      <AddServiceForm services={services} AddService={AddService} />
+      <ServiceList
+        services={services}
+        updateService={updateService}
+        handleDelete={handleDelete}
+      />
     </div>
   );
 }

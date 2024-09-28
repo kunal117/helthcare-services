@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Service({ service, updateService }) {
+function Service({ service, updateService, handleDelete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedService, setEditedService] = useState({ ...service });
 
@@ -48,9 +48,9 @@ function Service({ service, updateService }) {
         <div>
           <h1>{service.name}</h1>
           <p>{service.description}</p>
-          <p>{service.prices}</p>
+          <p>{`Price: ${service.price}`}</p>
           <button onClick={() => setIsEditing(true)}>Edit</button>
-          <button>Delete</button>
+          <button onClick={() => handleDelete(service.id)}>Delete</button>
         </div>
       )}
     </li>

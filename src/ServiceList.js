@@ -1,6 +1,6 @@
 import Service from "./Service";
 
-function ServiceList({ services, updateService }) {
+function ServiceList({ services, updateService, handleDelete }) {
   return (
     <div>
       <h2>Available Services</h2>
@@ -10,6 +10,7 @@ function ServiceList({ services, updateService }) {
             key={service.id}
             service={service}
             updateService={updateService}
+            handleDelete={handleDelete}
           />
         ))}
       </ul>
